@@ -1,0 +1,12 @@
+<div class="container">
+  <%= @update.user %>
+  |
+  <%= @update.status %>
+  |
+  <%= @update.likes %>
+  |
+  <%= link_to 'Edit', edit_update_path(@update) %>
+  |
+  <%= link_to 'Delete', update_path(@update), method: :delete %>
+</div>
+<%= link_to 'All Status Updates', updates_path %>

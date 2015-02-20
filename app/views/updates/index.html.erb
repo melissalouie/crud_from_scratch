@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>All Status Updates</h1>
+    <% @updates.each do |update| %>
+      <div class="row">
+        <%= update.user %>
+        |
+        <%= update.status %>
+        |
+        <%= update.likes %>
+        |
+        <%= link_to 'Edit', edit_update_path(update) %>
+        |
+        <%= link_to 'Delete', update_path(update), method: :delete %>
+      </div>
+
+    <% end %>
+    <%= link_to 'Create Update', new_update_path %>
+</div>
