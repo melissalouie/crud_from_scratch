@@ -2,7 +2,8 @@ class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
 
   def index
-    @updates = Update.all
+    @updates = Update.order(:user)
+
   end
 
   def show
@@ -14,6 +15,7 @@ class UpdatesController < ApplicationController
 
   def create
     @update = Update.new(update_params)
+    @update.likes = 0
     if @update.save
       flash[:notice] = "Status update successfully created."
       redirect_to update_path(@update)
@@ -33,7 +35,14 @@ class UpdatesController < ApplicationController
       render :edit
     end
   end
-  
+
+  def add_like
+    @update = Update.find(params[:id])
+    @update.likes += 1
+    @update.save
+    redirect_to root_path
+  end
+
   def destroy
     @update.destroy
     flash[:notice] = "Status update deleted."

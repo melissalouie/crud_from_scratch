@@ -5,6 +5,9 @@
   |
   <%= @update.likes %>
   |
+  <%= link_to 'Like', add_like_path(@update) %>
+  <%= @update.likes %>
+  |
   <%= link_to 'Edit', edit_update_path(@update) %>
   |
   <%= link_to 'Delete', update_path(@update), method: :delete %>

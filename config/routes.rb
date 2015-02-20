@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'updates#index'
   resources :updates
+
+  get 'updates/:id/add_like' => 'updates#add_like', :as => 'add_like'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
